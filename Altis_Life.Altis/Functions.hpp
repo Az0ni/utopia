@@ -351,6 +351,7 @@ class Life_Client_Core
 	    class getxp {};
 	    class updatexp {};
 		class levelcheck {};
+		class levelrewards {};
 	};
 
 	class Dialog_Controls
