@@ -98,7 +98,10 @@ diag_log "Executing client.fsm";
 waitUntil {!(isNull (findDisplay 46))};
 
 diag_log "Display 46 Found";
-(findDisplay 46) displayAddEventHandler ["KeyDown", "_this call life_fnc_keyHandler"];
+(findDisplay 46) displayAddEventHandler ["KeyDown", {
+	[missionNamespace,("keyDown" + str ( _this select 1)),_this] call bis_fnc_callScriptedEventhandler;
+	_this call life_fnc_keyHandler;
+}];
 player addRating 99999999;
 diag_log "------------------------------------------------------------------------------------------------------";
 diag_log format["                End of Altis Life Client Init :: Total Execution Time %1 seconds ",(diag_tickTime) - _timeStamp];
