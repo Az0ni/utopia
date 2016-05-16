@@ -12,6 +12,8 @@ civ_spawn_3 = nearestObjects[getMarkerPos  "civ_spawn_3", ["Land_i_Shop_01_V1_F"
 civ_spawn_4 = nearestObjects[getMarkerPos  "civ_spawn_4", ["Land_i_Shop_01_V1_F","Land_i_Shop_01_V2_F","Land_i_Shop_01_V3_F","Land_i_Shop_02_V1_F","Land_i_Shop_02_V2_F","Land_i_Shop_02_V3_F"],250];
 waitUntil {!(isNull (findDisplay 46))};
 
+[] spawn life_fnc_getxp;
+
 if(life_is_arrested) then {
 	life_is_arrested = false;
 	[player,true] spawn life_fnc_jail;
@@ -21,5 +23,3 @@ if(life_is_arrested) then {
 	waitUntil{isNull (findDisplay 38500)}; //Wait for the spawn selection to be done.
 };
 player addRating 9999999;
-
-[] call life_fnc_getxp;
