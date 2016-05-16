@@ -29,8 +29,11 @@ corpseRemovalMaxTime = 9999;
 #include "CfgRemoteExec.hpp"
 #include "dialog\MasterHandler.hpp"
 #include "Config_Master.hpp"
-#include "RageWorks\config.cpp" // cfgFunctions is implemented here!
+#include "RageWorks\config.cpp"
 
+class CfgFunctions {
+	#include "\Functions.hpp"
+};
 class RscTitles {
 	#include "dialog\progress.hpp"
 	#include "dialog\hud_nameTags.hpp"
