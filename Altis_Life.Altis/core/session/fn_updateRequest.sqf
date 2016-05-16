@@ -12,17 +12,18 @@ _flag = switch(playerSide) do {case west: {"cop"}; case civilian: {"civ"}; case 
 	_varName = LICENSE_VARNAME(configName _x,_flag);
 	_array pushBack [_varName,LICENSE_VALUE(configName _x,_flag)];
 } foreach (format["getText(_x >> 'side') isEqualTo '%1'",_flag] configClasses (missionConfigFile >> "Licenses"));
-
 _packet pushBack _array;
 
 [] call life_fnc_saveGear;
 _packet pushBack life_gear;
 
 _array = [];
+
 _array pushBack life_hunger;
 _array pushBack life_thirst;
-_packet pushBack _array;
 // level system variables.
+_packet pushBack _array;
+
 _packet pushBack life_xp;
 _packet pushBack life_level;
 //---------------------------
