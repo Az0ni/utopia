@@ -5,9 +5,11 @@ respawn = BASE;
 respawndelay = 5;
 disabledAI = 1;
 disableChannels[]={0,1,2};
-enableDebugConsole = 1;
+enableDebugConsole = 2;	// for everyone while testing
 respawnDialog = 0;
 saving = 0;
+
+allowFunctionsRecompile = 1; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 class Header
 {
@@ -34,7 +36,6 @@ class RscTitles {
 	#include "dialog\hud_stats.hpp"
 };
 
-class CfgFunctions {
 	#include "Functions.hpp"
 };
 
