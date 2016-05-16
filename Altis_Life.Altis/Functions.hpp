@@ -350,6 +350,7 @@ class Life_Client_Core
 		file = "core\skillsystem";
 	    class getxp {};
 	    class updatexp {};
+		class levelcheck {};
 	};
 
 	class Dialog_Controls

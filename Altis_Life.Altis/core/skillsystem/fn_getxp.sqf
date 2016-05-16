@@ -8,5 +8,5 @@ while{true} do {
 	sleep ((LIFE_SETTINGS(getNumber,"xp_time"))*60);
 	life_xp = life_xp + 10;
 	hint "Du hast 10 XP bekommen!";
-	[] call life_fnc_updatexp;
+	[] call life_fnc_levelcheck;
 };
