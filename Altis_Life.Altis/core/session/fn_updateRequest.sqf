@@ -22,7 +22,10 @@ _array = [];
 _array pushBack life_hunger;
 _array pushBack life_thirst;
 _packet pushBack _array;
-
+// level system variables.
+_packet pushBack life_xp;
+_packet pushBack life_level;
+//---------------------------
 switch (playerSide) do {
 	case civilian: {
 		_packet pushBack life_is_arrested;
