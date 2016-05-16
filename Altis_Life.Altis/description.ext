@@ -32,7 +32,7 @@ corpseRemovalMaxTime = 9999;
 #include "RageWorks\config.cpp"
 
 class CfgFunctions {
-	#include "\Functions.hpp"
+	#include "Functions.hpp"
 };
 class RscTitles {
 	#include "dialog\progress.hpp"
