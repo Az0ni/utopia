@@ -10,6 +10,3 @@ class rageWorks{
 };
 
 
-class CfgFunctions { 
-	#include "Functions.hpp"
-};	
