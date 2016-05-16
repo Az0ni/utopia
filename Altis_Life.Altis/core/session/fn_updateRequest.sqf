@@ -26,11 +26,11 @@ _packet pushBack _array;
 
 switch (playerSide) do {
 	case civilian: {
+	    // level system variables.
+        _packet pushBack life_xp;
+        _packet pushBack life_level;
+        //---------------------------
 		_packet pushBack life_is_arrested;
-		// level system variables.
-		_packet pushBack life_xp;
-		_packet pushBack life_level;
-		//---------------------------
 	};
 };
 
