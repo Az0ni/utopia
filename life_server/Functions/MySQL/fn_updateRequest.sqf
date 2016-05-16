@@ -38,7 +38,7 @@ switch (_side) do {
 	case west: {_query = format["UPDATE players SET name='%1', cash='%2', bankacc='%3', cop_gear='%4', cop_licenses='%5', cop_stats='%6' WHERE playerid='%7'",_name,_cash,_bank,_gear,_licenses,_stats,_uid];};
 	case civilian: {
 		_lifexp = _this select 8;
-		_lifeLevel = _this select 9;
+		_lifeLevel = _this select 7;
 		_lifexp = [_lifexp] call DB_fnc_numberSafe;
 		_lifeLevel = [_lifeLevel] call DB_fnc_numberSafe;
 		_query = format["UPDATE players SET name='%1', cash='%2', bankacc='%3', civ_licenses='%4', civ_gear='%5', arrested='%6', civ_stats='%7',level='%8',xp='%9' WHERE playerid='%10'",_name,_cash,_bank,_licenses,_gear,[_this select 10] call DB_fnc_bool,_stats,_lifeLevel,_lifexp,_uid];};
