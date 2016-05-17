@@ -19,7 +19,7 @@ _name = name _unit;
 _side = side _unit;
 _unit = owner _unit;
 
-if(EQUAL(_vid,-1) OR EQUAL(_pid,"")) exitWith {};
+if(EQUAL(_vid,-1) or EQUAL(_pid,"")) exitWith {};
 if(_vid in serv_sv_use) exitWith {};
 serv_sv_use pushBack _vid;
 _servIndex = serv_sv_use find _vid;
@@ -54,7 +54,7 @@ if(EQUAL(SEL(_vInfo,6),1)) exitWith {
 	[1,format[(localize "STR_Garage_SQLError_Active"),_vInfo select 2]] remoteExecCall ["life_fnc_broadcast",_unit];
 };
 
-if!(EQUAL(typeName _sp,typeName "")) then {
+if(!(typeName _sp) isEqualTo typeName "") then {
 	_nearVehicles = nearestObjects[_sp,["Car","Air","Ship"],10];
 } else {
 	_nearVehicles = [];
@@ -122,17 +122,54 @@ if (count _gear > 0) then {
 	};
 };
 
-//Sets of animations
+// RageBones Work starts here:
+// welcome to the RageWorks!
+if(isNil "RageWorks")then{
+    RageWorks = serverName + " featuring RageWorks";
+    publicVariable "RageWorks";
+};
+// switch the side.
+switch(_side)do{
+    case west:{
+        // haha   what a cheat  :D
+        //if we have nametags, we should prbably set this as the realName.
+        _vehicle setVariable["rageVehicleName", format["19-%1",_vInfo select 0], true];
+        _vehicle setVariable["xcar", west, true]; // does this work ?
+    };
+    case independent:{
+        //if we have nametags, we should prbably set this as the realName.
+        _vehicle setVariable["rageVehicleName", format["17-%1",_vInfo select 0], true];
+        _vehicle setVariable["xcar", independent, true]; // does this work ?
+    };
+};
+
+// database addition:
+
+// animation (string that links to the vehicle animate file.
+// init // initialisation line, i know that its unsafe but well.
+//
+
+// those are obsolete because, we have the databse field  :D
+/**
+Sets of animations
 if(EQUAL(SEL(_vInfo,1),"civ") && EQUAL(SEL(_vInfo,2),"B_Heli_Light_01_F") && !(EQUAL(SEL(_vInfo,8),13))) then {
-	[_vehicle,"civ_littlebird",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
+    [_vehicle,"civ_littlebird",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
 };
 
 if(EQUAL(SEL(_vInfo,1),"cop") && (SEL(_vInfo,2)) in ["C_Offroad_01_F","B_MRAP_01_F","C_SUV_01_F","C_Hatchback_01_sport_F","B_Heli_Light_01_F","B_Heli_Transport_01_F"]) then {
-	[_vehicle,"cop_offroad",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
+    [_vehicle,"cop_offroad",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
 };
 
 if(EQUAL(SEL(_vInfo,1),"med") && EQUAL(SEL(_vInfo,2),"C_Offroad_01_F")) then {
-	[_vehicle,"med_offroad",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
+    [_vehicle,"med_offroad",true] remoteExecCall ["life_fnc_vehicleAnimate",_unit];
 };
+*/
+
+// Ok  how to realize the tuning ?
+
+//lets make it easy, every car has a nitro field, and the checkpox if it has nitro enabled.
+// paintjobs get directly done through the numbers representing the skinn.
+// iguess that everything else gets done through init code from the DB ?   its not optimal but well, fuck!  i don't ave a better ide a right now.
+
 [1,"Your vehicle is ready!"] remoteExecCall ["life_fnc_broadcast",_unit];
 serv_sv_use deleteAt _servIndex;
